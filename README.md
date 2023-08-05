@@ -20,7 +20,7 @@ I fetch the data about the current weather from the OpenWeather Current Weather 
 Link: [API link](https://openweathermap.org/api)
 
 # Preview
-![]
+![Preview of the project](https://github.com/goel-adii/Forecast_Weather_Webapp/blob/main/public/screenshot/weather%20app%202.jpg)
 
 
 # Prerequisites
