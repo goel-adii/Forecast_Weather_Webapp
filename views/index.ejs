@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App Using OpenWeatherMap API</title>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* ... (your custom styles) ... */
+  </style>
+</head>
+<body> 
+  <div class="container">
+    
+    <ul class="navbar">
+      <li class="logo"><a class="repo-link" href="https://">⛄ Forecast</a></li>
+      <li class="form-data">                    
+        <form action="/" method="post">
+          <select name="units" id="units" class="field">
+            <option value="">Choose a unit</option>
+            <option value="standard">standard</option>
+            <option value="metric">metric</option>
+            <option value="imperial ">imperial </option>
+          </select>
+          <select name="lang" id="lang" class="field">
+            <option value="">Choose a language</option>
+                            <option value="al">Albanian</option>
+                            <option value="af">Afrikaans</option>
+                            <option value="ar ">Arabic </option>
+                            <option value="az"> Azerbaijani</option>
+                            <option value="bg"> Bulgarian</option>
+                            <option value="ca "> Catalan </option>
+                            <option value="cz"> Czech</option>
+                            <option value="da"> Danish</option>
+                            <option value="de">German</option>
+                            <option value="el ">Greek </option>
+                            <option value="en"> English </option>
+                            <option value="eu">Basque</option>
+                            <option value="fi"> Finnish</option>
+                            <option value="fr">French</option>
+                            <option value="gl">Galician</option>
+                            <option value="he ">Hebrew </option>
+                            <option value="hi"> Hindi  </option>
+                            <option value="hr">Croatian</option>
+                            <option value="hu ">Hungarian </option>
+                            <option value="id">Indonesian</option>
+                            <option value="it">Italian</option>
+                            <option value="ja">Japanese</option>
+                            <option value="kr ">Korean </option>
+                            <option value="ru">Russian</option>
+                            <option value="vi">Spanish</option>
+                            <option value="pt ">Portuguese </option>
+          </select>
+          <input type="text" name="city" id="city" class="field" placeholder="Search for a city...." autocomplete="off">
+          <button type="submit" class="field">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3c3c3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>                   
+      </li>
+    </ul>
+  </div>
+  <div class="hero-section">
+    <img src="media/<%= background%>" alt="blabla" class="background-image">
+    <div class="data">
+      <p class="place-info"><%= locDate.location %></p>
+      <p class="temp">
+        <%= locDate.temp %>
+        <span>
+          <%= locDate.unit %>
+        </span> 
+      </p>
+      <p class="disc"><%= locDate.disc %></p>
+    </div>
+    <div class="view-more-box">
+      <p class="view">View More</p>
+      <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </div>
+    <div class="info-card">
+      <div class="flex">
+        <p class="feel">Feel-like:</p>
+        <p class="feel"><%= locDate.feel %>°C</p>
+      </div>
+      <div class="flex">
+        <p class="humidity">Humidity:</p>
+        <p class="feel"><%= locDate.humidity %>%</p>
+      </div>
+      <div class="flex">
+        <p class="windSpeed">Wind-Speed:</p>
+        <p class="feel speed"><%= locDate.speed %> m/hr</p>
+      </div>
+    </div>
+    <div class="date-time">
+      <p class="time">Time</p>
+      <p class="date">Day and Date</p>
+    </div>
+  </div>
+  <script src="./js/app.js"></script>
+</body>
+</html>
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Weather App Using OpenWeatherMap API</title>
+
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+      body
+      {
+        /* background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)) , url('media/day1.jpg'); */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        
+        /* Added background-repeat and set it to no-repeat to help prevent the images from duplicating. I added !important to 
+         * background-repeat and background-size in order to place importance on the background images not repeating and
+         * to cover the entire webpage. Phillip Andrews
+         */
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-attachment: fixed;
+
+				height: 100vh;
+      }
+			@media (max-width: 600px)
+			{
+				body
+				{
+					height: 100%;
+				}
+			}
+        </style>
+    </head>
+  <body> 
+    <div class="">
+        <ul class="navbar">
+            <li class="logo"><a class="repo-link" href="https://">⛄ Forecast</a></li>
+            <li class="form-data">                    
+                    <form action="/" method="post">                   
+
+                        <select name="units" id="units" class="field">
+                            
+                        </select>
+
+                        <select name="lang" id="lang" class="field">
+                           
+                        </select>
+                        
+                        <input type="text" name="city" id="city" class="field" placeholder="Search for a city...." autocomplete="off">
+                        <button type="submit" class="field"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3c3c3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+                    </form>
+                    
+            </li>
+        </ul>
+    </div>
+    <div class="hero-section">
+        <img src="media/<%= background%>" alt="blabla" class="background-image">
+        
+        <div class="container">
+        <br>
+            <div class="data">
+                <p class="place-info"><%= locDate.location %></p>
+                <p class="temp"><%= locDate.temp %>
+                    <span>
+                        <%=locDate.unit%>
+                    </span> 
+                </p>
+                <p class="disc"><%= locDate.disc %></p>
+            </div>
+
+            <div class="view-more-box">
+                <p class="view">View More</p>
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+
+            <div class="info-card">
+                <div class="flex"><p class="feel">Feel-like:</p><p class="feel"><%= locDate.feel %>°C</p></div>
+                <div class="flex"><p class="humidity">Humidity:</p><p class="feel"><%= locDate.humidity %>%</p></div>
+                <div class="flex"><p class="windSpeed">Wind-Speed:</p><p class="feel speed"><%= locDate.speed %> m/hr</p></div>
+            </div>
+
+            <div class="date-time">
+                <p class="time">Time</p>
+                <p class="date">Day and Date</p>
+            </div>
+        </div>
+    </div>
+        <script src="./js/app.js"></script>
+        
+    
+  </body>
+</html> -->
