@@ -2,9 +2,10 @@ const express = require("express");
 // const axios = require("axios");
 const fetch = require("node-fetch");
 const ejs = require("ejs");
+const _= require("lodash");
 require("dotenv").config();
 const app = express();
-const port = 3001;
+const port = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
@@ -67,12 +68,15 @@ app.post("/", async (req, res) => {
       locDate.feel = data.main.feels_like;
       locDate.humidity = data.main.humidity;
       locDate.speed = data.wind.speed;
-      locDate.location = location;
+      locDate.location = _.capitalize(location);
       //console.log(locDate);
       res.render("index", { locDate: locDate,background:randomBackground,});
   } catch (err) {
       console.log(err);
-      res.status(400).json({ data: 'not found!' })
+      var randomBackground = backgroundsList[Math.floor(Math.random() * backgroundsList.length)];
+      let locDate = { temp: "Temp", disc: "Discription", location: "Not valid!", humidity: "Humidity ", feel: "Feel ", speed: "Speed" }
+      // res.status(400).json({ data: 'not found!' })
+      res.render("index", { locDate: locDate,background:randomBackground,});
   }
 });
 

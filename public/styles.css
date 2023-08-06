@@ -110,7 +110,7 @@ body {
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 46%;
+  top: 36%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -118,6 +118,7 @@ body {
 .place-info,
 .temp,
 .disc {
+  padding: 10px;
   font-size: 75px;
   font-weight: 900;
   color: #fff;
@@ -249,7 +250,7 @@ body {
   .temp,
   .disc {
     font-size: 40px;
-    line-height: 50px;
+    line-height: 40px;
   }
 
   .date-time {

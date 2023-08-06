@@ -6,6 +6,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "https": "^1.0.0",
+    "lodash": "^4.17.21",
     "node-fetch": "^2.6.1"
   },
   "name": "weather-webapp",
